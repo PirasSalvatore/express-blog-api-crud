@@ -4,10 +4,20 @@ const posts = require("../data/posts")
 function index(req, res) {
 
     let postsFiltered = posts
+
     const filter = req.query.tags
 
+    console.log(filter);
+    console.log(posts[0].tags.join("").replaceAll(" ", ""))
+
+
     if (filter) {
-        postsFiltered = posts.filter(post => post.tags.includes(filter))
+        /*
+        utilizzo la funzione join per trasformare l'array tag in una stringa
+        utilizzo la funzione replaceALL per andare a rimuovere eventuali spazzi nella stringa
+        utilizzo la funzione includes per verificare se nella stringa generata è presente il pattern per il filtro
+        */
+        postsFiltered = posts.filter(post => post.tags.join("").replaceAll(" ", "").includes(filter))
     }
 
     res.json(postsFiltered)
@@ -68,7 +78,7 @@ function destroy(req, res) {
 
     console.log(posts);
 
-    res.sendStatut(204);
+    res.sendStatus(204);
 }
 
 module.exports = {
