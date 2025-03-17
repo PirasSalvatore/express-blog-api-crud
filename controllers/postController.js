@@ -43,8 +43,24 @@ function show(req, res) {
 
 //store (create)
 function store(req, res) {
-    console.log(req.body);
 
+    //ricavo i parametri nel corpo della richiesta
+    const { title, slug, content, image, tags } = req.body
+
+    //creo un nuovo post
+    const newPost = {
+        title: title,
+        slug: slug,
+        content: content,
+        image: image,
+        tags: tags
+    }
+
+    // inserisco il nuovo post nell'array dei post
+    posts.push(newPost)
+
+    //rispondo alla richiesta con uno status 201 e con il json del nuovo post
+    res.status(201).json(newPost)
 
 }
 
