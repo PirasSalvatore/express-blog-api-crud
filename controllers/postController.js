@@ -45,12 +45,12 @@ function show(req, res) {
 function store(req, res) {
 
     //ricavo i parametri nel corpo della richiesta
-    const { title, slug, content, image, tags } = req.body
+    const { title, content, image, tags } = req.body
 
     //creo un nuovo post
     const newPost = {
         title: title,
-        slug: slug,
+        slug: title.toLowerCase().replaceAll(" ", "-"),
         content: content,
         image: image,
         tags: tags
