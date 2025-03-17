@@ -43,7 +43,9 @@ function show(req, res) {
 
 //store (create)
 function store(req, res) {
-    res.send("store a new post")
+    console.log(req.body);
+
+
 }
 
 //update (update)

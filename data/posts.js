@@ -41,6 +41,13 @@ const posts = [
     image: "torta_paesana.jpeg",
     tags: ["Dolci", "Dolci al cioccolato", "Torte", "Ricette vegetariane", "Ricette al forno"],
   },
+  /*   {
+      title: "Lasagne alla bolognese",
+      slug: "lasagne-alla-bolognese", 
+      content: `Le lasagne alla bolognese sono un primo piatto tradizionale emiliano, un grande classico della cucina italiana amato in tutto il mondo. Strati di pasta all'uovo si alternano con un succulento ragù di carne e besciamella, creando un piatto ricco e sostanzioso perfetto per il pranzo della domenica in famiglia. La nostra ricetta segue la tradizione bolognese con un ragù preparato lentamente e una besciamella cremosa fatta in casa. Una volta assemblate e gratinate in forno, queste lasagne conquisteranno tutti con il loro profumo irresistibile e il sapore ricco di storia.`,
+      image: "lasagne_bolognese.jpeg",
+      tags: ["Primi piatti", "Pasta al forno", "Ricette della tradizione"]
+    } */
 ];
 
 module.exports = posts;
