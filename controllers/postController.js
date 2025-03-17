@@ -66,8 +66,41 @@ function store(req, res) {
 
 //update (update)
 function update(req, res) {
+    // mi ricavo lo slug dalla richiest
     const postSlug = req.params.Slug
-    res.send(`update your post have Slug : ${postSlug}`);
+
+    //prendo il post corrispondente a quello richiesto
+    const post = posts.find((post) => post.slug === postSlug)
+
+    //controllo se esiste
+    if (!post) {
+
+        return res.status(404).json({
+            error: "404 NOT FOUD",
+            messege: "post not found"
+        })
+    }
+
+    //ricavo i parametri nel corpo della richiesta
+    const { title, slug, content, image, tags } = req.body
+
+    //creo un nuovo post
+    const newPost = {
+        title: title,
+        slug: slug,
+        content: content,
+        image: image,
+        tags: tags
+    }
+
+    //sostituisco il vecchio con il nuovo
+    posts[posts.indexOf(post)] = newPost
+
+    //loggo l'array post
+    console.log(posts);
+
+    //rispondo alla richiesta con  il json del post modificato
+    res.json(newPost)
 }
 
 //partial update (modify)
