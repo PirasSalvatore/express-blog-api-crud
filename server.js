@@ -2,10 +2,14 @@ const express = require("express")
 const app = express()
 const port = 3000
 
+//importo la middelware per la gestione degli errori lato server
+const serverError = require("./middelware/serverError")
+
 // import static assets
 app.use(express.static("public"))
 // importo le midleware per la lettura del request body
 app.use(express.json())
+
 
 //import rout
 const postsRouter = require("./routers/posts")
@@ -20,3 +24,6 @@ app.get('/', (req, res) => {
 
 //uso le rout importate
 app.use("/api/v1/posts", postsRouter)
+
+//intercetto errori lato server
+app.use(serverError)
