@@ -5,6 +5,9 @@ const port = 3000
 //importo la middelware per la gestione degli errori lato server
 const serverError = require("./middelware/serverError")
 
+//importo la middelware per la gestione degli errori lato rout
+const notFound = require("./middelware/notFound")
+
 // import static assets
 app.use(express.static("public"))
 // importo le midleware per la lettura del request body
@@ -27,3 +30,6 @@ app.use("/api/v1/posts", postsRouter)
 
 //intercetto errori lato server
 app.use(serverError)
+
+//gestisco richieste di rout inesistenti o errate
+app.use(notFound)
